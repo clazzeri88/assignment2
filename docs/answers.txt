@@ -1,0 +1,135 @@
+1)
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .idea/
+        docs/status.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+clazz@Ace MINGW64 ~/School Fall 2025/Software Engineering/assignment3/assignment2 (master)
+$ git add docs/status.txt
+
+clazz@Ace MINGW64 ~/School Fall 2025/Software Engineering/assignment3/assignment2 (master)
+$ git commit -m "Added status.txt"
+[master f6ca0ab] Added status.txt
+ 1 file changed, 10 insertions(+)
+ create mode 100644 docs/status.txt
+
+clazz@Ace MINGW64 ~/School Fall 2025/Software Engineering/assignment3/assignment2 (master)
+$ git push
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 28 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 531 bytes | 531.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/clazzeri88/assignment2.git
+   5ee9b21..f6ca0ab  master -> master
+
+-----------------------------------------------------------------------------------------------------
+
+2)
+$ git rev-list --count --all
+10
+(10 commits total on this repo)
+
+-----------------------------------------------------------------------------------------------------
+
+3) 
+$ ll
+total 19
+-rw-r--r-- 1 clazz 197610  714 Oct  3 14:18 Bicycle.cpp
+-rw-r--r-- 1 clazz 197610  517 Oct  3 14:18 Bicycle.h
+-rw-r--r-- 1 clazz 197610 1023 Oct  3 14:18 Car.cpp
+-rw-r--r-- 1 clazz 197610  567 Oct  3 14:18 Car.h
+-rw-r--r-- 1 clazz 197610  448 Oct  3 14:18 PoweredVehicle.cpp
+-rw-r--r-- 1 clazz 197610  511 Oct  3 14:18 PoweredVehicle.h
+-rw-r--r-- 1 clazz 197610   58 Oct  3 14:32 README.md
+-rw-r--r-- 1 clazz 197610  549 Oct  3 14:18 Vehicle.cpp
+-rw-r--r-- 1 clazz 197610  772 Oct  3 14:18 Vehicle.h
+drwxr-xr-x 1 clazz 197610    0 Oct  3 14:38 docs/
+-rw-r--r-- 1 clazz 197610 1337 Oct  3 14:18 main.cpp
+
+README.md was last edited October 3rd 2:32pm
+
+-----------------------------------------------------------------------------------------------------
+
+4)
+Git branches are incredible important for source control. For instance, a master branch can hold
+the newest version of a software product on a developement repo. Variations of this software
+can be divided into different branches supporting unique features or testing branches
+enabling engineers to easily track and document work. If all work were done on a single
+branch, there would be cluttered and confusing commit messages, log history, etc.
+Git branches also enables multiple engineers to develop features in parallel. Allowing work for
+some arbitrary task to be done in parallel with another. This then allows the engineers to merge
+the two feature branches and push to a remote repository WITHOUT disturbing the work of others.
+This isolated environment keeps code organized, documented, and streamlines the software Engineering
+process.
+
+-----------------------------------------------------------------------------------------------------
+
+5)
+Git log is used to demonstrate the histroy of commits and changes to a repo. This log is can actually
+be carried to other branches or even forked repos, and merged back depending on the merge 
+strategy (squash or preserve git logs). This allows for engineers to track the commit history 
+of the whole branch/feature/repo. Git status is used to check the current state of the local working
+environment. Including changes in files, and the location of those files. Both are incredibly
+important in useful, but they are used at checking the state of a project/local environment in
+different contexts.
+
+-----------------------------------------------------------------------------------------------------
+
+6)
+git log --follow Vehicle.h
+
+-----------------------------------------------------------------------------------------------------
+
+7)
+git log --grep file
+or
+git log --grep="file"
+
+-----------------------------------------------------------------------------------------------------
+
+8)
+Inheritance: An instance where a child class is created and inherits the attributes, and meothods
+of a parent class. For instance. Vehicle has the method go(). Car is a child class of the parent
+class Vehicle, thus the Car class inherits the go() method.
+
+Polymorphism: Polymorphism is a concpet where an object, class, or method can take on multiple
+forms, based on the environment interaction. For instance, a method can have multiple function
+signatures that handle differnet parameters or objects passed to them. Additionally, in instances
+of Inheritance, methods can be overidden at the child class level to use their own unique method.
+
+Encapsulation: Is the practice of creating accessors for data and other class attributes. For 
+instance, the most common example is getters() and setters() for class objects. This provides
+protected interfaces for interacting with a class, allowing its data to be accessed outside
+of the class module but in a safe manner.
+
+-----------------------------------------------------------------------------------------------------
+
+9)
+In the “Dictator and Lieutenants” a single person handles all merging from the Lieutenant level.
+In this workflow, everybody and pulls from the same repo. However developers push to more localized
+"Lieutenant" repos. Which is merged into the blessed repo by the manager. 
+In the Integration Manager Workflow, each developer has their own public repo, and private repo. The
+integration then takes the changes (likely whole features) from the developers repo and merges it into
+the blessed repo. All members pull from this repo, likely rebasing their private/public repos.
+
+-----------------------------------------------------------------------------------------------------
+
+10)
+In larger teams the “Dictator and Lieutenants” helps organize code pushes. In a centralized workflow,
+a lot of time (labor) can be wasted trying to handle merge conflicts both when pushing and pulling.
+Since all people are using a single repo, each change to the remote repo would cause all members to
+have to rebase and solve merge conflicts. In a large team, this likely means that all members would
+spend a great deal of their time constantly rebasing their feature branches, instead of focusing
+on production. the “Dictator and Lieutenants” gives a small team or person the role of merging all code,
+and isolating team repos. This saves time with merge conflicts, and gives the task of merge conflicts
+to a single team, ultimately saving everyone elses time.  
+
